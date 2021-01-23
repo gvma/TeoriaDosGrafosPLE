@@ -77,11 +77,18 @@ public:
             cout << endl;
         }
     }
+
+    void freeGraph() {
+        this->visited.clear();
+        this->adjList.clear();
+        this->mst.clear();
+    }
 };
 
 int main()
 {
     GraphPrim prim;
     cout << prim.prim(1, true) << endl;
+    prim.freeGraph();
     return 0;
 }

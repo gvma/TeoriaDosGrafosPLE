@@ -227,6 +227,13 @@ void dijkstra(GRAPH *graph, int source, int *distance, PAIR *predecessors) {
     }
 }
 
+void freeGraph(GRAPH *graph) {
+    int i;
+    for (i = 0; i < graph->size; ++i) {
+        free(graph->vertex[i]);
+    }
+}
+
 int main() {
     int sz = 1, edges, i;
     scanf("%d %d", &sz, &edges);
@@ -246,5 +253,6 @@ int main() {
     }
     // print_graph(graph);
     dijkstra(graph, 1, distance, predecessors);
+    freeGraph(graph);
     return 0;
 }
